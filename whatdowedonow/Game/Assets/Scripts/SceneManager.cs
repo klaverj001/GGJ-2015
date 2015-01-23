@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SceneManager : MonoBehaviour {
 
-	public int randomSceneNumber;
+	public static int randomSceneNumber;
 
 	// Use this for initialization
 	void Start () {
