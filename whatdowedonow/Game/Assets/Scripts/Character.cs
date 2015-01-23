@@ -85,7 +85,8 @@ public class Character : MonoBehaviour
 				if (alive == true) {
 
 						physVel = Vector2.zero;
-
+					if (networkView.isMine)
+					{
 						// move left
 						if (currentInputState == inputState.WalkLeft) {
 								physVel.x = -moveVel;
@@ -111,7 +112,7 @@ public class Character : MonoBehaviour
 				}*/
 								}
 						}
-
+					}
 						// use raycasts to determine if the player is standing on the ground or not
 						if (Physics2D.Raycast (new Vector2 (_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .26f, groundMask) 
 								|| Physics2D.Raycast (new Vector2 (_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .26f, groundMask)) {
