@@ -8,13 +8,15 @@ public class SceneManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		// Create a random int between 0 and the maxium amount of scenes
-		randomSceneNumber = Random.Range (0, Application.levelCount);
-
-		// Loops till the random number is different then the current Scene
-		while (randomSceneNumber == Application.loadedLevel) {
+		if(Application.levelCount > 1){
+			// Create a random int between 0 and the maxium amount of scenes
 			randomSceneNumber = Random.Range (0, Application.levelCount);
-				}
+
+			// Loops till the random number is different then the current Scene
+			while (randomSceneNumber == Application.loadedLevel) {
+				randomSceneNumber = Random.Range (0, Application.levelCount);
+			}
+		}
 	}
 	
 	// Update is called once per frame
