@@ -24,35 +24,40 @@ public class Player1 : Character
 		{
 			Application.LoadLevel(0);
 		}
+
+			UpdateMovement();
 		
-		UpdateMovement();
+
+
 	}
 
 	public void FixedUpdate()
 	{
 				// inputstate is none unless one of the movement keys are pressed
 				currentInputState = inputState.None;
+				if (networkView.isMine) {
+						if (Character.alive == true) 
+						{
 
-				if (Character.alive == true) {
+								// move left
+								if (Input.GetKey (KeyCode.LeftArrow)) { 
+										currentInputState = inputState.WalkLeft;
+										facingDir = facing.Left;
+								}
 
-						// move left
-						if (Input.GetKey (KeyCode.LeftArrow)) { 
-								currentInputState = inputState.WalkLeft;
-								facingDir = facing.Left;
+								// move right
+								if (Input.GetKey (KeyCode.RightArrow) && currentInputState != inputState.WalkLeft) { 
+										currentInputState = inputState.WalkRight;
+										facingDir = facing.Right;
+								}
+
+								// jump
+								if (Input.GetKeyDown (KeyCode.UpArrow)) { 
+										currentInputState = inputState.Jump;
+								}
+
+								UpdatePhysics ();
 						}
-
-						// move right
-						if (Input.GetKey (KeyCode.RightArrow) && currentInputState != inputState.WalkLeft) { 
-								currentInputState = inputState.WalkRight;
-								facingDir = facing.Right;
-						}
-
-						// jump
-						if (Input.GetKeyDown (KeyCode.UpArrow)) { 
-								currentInputState = inputState.Jump;
-						}
-
-						UpdatePhysics ();
 				}
 		}
 	
