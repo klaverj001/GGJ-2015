@@ -20,6 +20,7 @@ public class FallingPlatform : MonoBehaviour {
             {
                 this.transform.FindChild("Spikes").rigidbody2D.AddForce(new Vector2(0, -10.0f), ForceMode2D.Impulse);
                 wannadrop = false;
+                dropTimer = timeToDrop;
             }
         }
 	}

@@ -25,10 +25,5 @@ public class SpikeTrap : MonoBehaviour {
             Destroy(other.gameObject, 0.2f);
             Debug.Log("destroyed");
         }
-        else
-        {
-            Debug.Log("revery");
-            this.transform.position = oriPos;
-        }
 	}
 }
