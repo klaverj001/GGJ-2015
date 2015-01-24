@@ -25,7 +25,8 @@ public class Player1 : Character
 			Application.LoadLevel(0);
 		}
 
-			UpdateMovement();
+			//UpdateMovement();
+		FixedUpdate ();
 		
 
 
@@ -35,7 +36,7 @@ public class Player1 : Character
 	{
 				// inputstate is none unless one of the movement keys are pressed
 				currentInputState = inputState.None;
-				currentControlType = controltype.Controls2;
+				currentControlType = controltype.Controls1;
 						if (Character.alive == true) 
 						{
 							if (networkView.isMine) 
