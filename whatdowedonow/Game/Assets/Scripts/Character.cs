@@ -178,19 +178,8 @@ public class Character : MonoBehaviour
 						// actually move the player
 						_rigidbody.velocity = new Vector2 (physVel.x, _rigidbody.velocity.y);
 				}
-
-		
-	// Collision with the keys
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.gameObject.name == "KMA_Key_sprite")
-		{
-			Debug.Log("Key moet destroyed worden");
-			Destroy(other.gameObject);
-			GameManager.numberOfKeysLeft--;
-		}
-	}
 	
+
 }
 
 public enum MyTeam 
