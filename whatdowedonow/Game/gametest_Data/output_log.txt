@@ -13,7 +13,7 @@ Platform assembly: C:\Users\pansee\Desktop\GGJ-2015\whatdowedonow\Game\gametest_
 Loading C:\Users\pansee\Desktop\GGJ-2015\whatdowedonow\Game\gametest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\pansee\Desktop\GGJ-2015\whatdowedonow\Game\gametest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\pansee\Desktop\GGJ-2015\whatdowedonow\Game\gametest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.078 seconds
+- Completed reload, in  0.050 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found.

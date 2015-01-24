@@ -5,16 +5,24 @@ public class Character : MonoBehaviour
 {
 	public MyTeam myTeam = MyTeam.Team1;
 
+	public enum controltype
+	{
+		Controls1,
+		Controls2,
+		Controls3
+
+	}
 	public enum inputState 
 	{ 
 		None, 
 		WalkLeft, 
 		WalkRight, 
 		Jump, 
+		Duck,
 		Pass
 	}
 	[HideInInspector] public inputState currentInputState;
-	
+	[HideInInspector] public controltype currentControlType;
 	[HideInInspector] public enum facing { Right, Left }
 	[HideInInspector] public facing facingDir;
 
@@ -87,32 +95,75 @@ public class Character : MonoBehaviour
 						physVel = Vector2.zero;
 					if (networkView.isMine)
 					{
+				if (currentControlType == controltype.Controls1)
+				{
+					// move left
+					if (currentInputState == inputState.WalkLeft) {
+						physVel.x = -moveVel;
+					}
+					
+					// move right
+					if (currentInputState == inputState.WalkRight) {
+						physVel.x = moveVel;
+					}
+					if (currentInputState == inputState.Duck) {
+						//play duck animation;
+					}
+					// jump
+					if (currentInputState == inputState.Jump) {
+						if (jumps < maxJumps && _transform.position.y < 3.4) {
+							jumps += 1;
+							_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
+							
+						}
+					}
+				}
+				if (currentControlType == controltype.Controls2)
+				{
 						// move left
 						if (currentInputState == inputState.WalkLeft) {
-								physVel.x = -moveVel;
+								physVel.x = moveVel;
 						}
 
 						// move right
 						if (currentInputState == inputState.WalkRight) {
-								physVel.x = moveVel;
+								physVel.x = -moveVel;
 						}
-
+						if (currentInputState == inputState.Duck) {
+						if (jumps < maxJumps && _transform.position.y < 3.4) {
+							jumps += 1;
+							_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
+						}
 						// jump
 						if (currentInputState == inputState.Jump) {
-								if (jumps < maxJumps && _transform.position.y < 3.4) {
-										jumps += 1;
-										_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
-										/*if(jumps == 1 && _transform.position.y < 3.4)
-				{
-					_rigidbody.velocity = new Vector2(physVel.x, jumpVel);
-				}
-				else if(jumps == 2 && _transform.position.y < 3.4)
-				{
-					_rigidbody.velocity = new Vector2(physVel.x, jump2Vel);
-				}*/
+								// play duck animation
 								}
 						}
 					}
+				if (currentControlType == controltype.Controls3)
+				{
+					// move left
+					if (currentInputState == inputState.WalkLeft) {
+						physVel.x = -moveVel;
+					}
+					
+					// move right
+					if (currentInputState == inputState.WalkRight) {
+						physVel.x = moveVel;
+					}
+					if (currentInputState == inputState.Duck) {
+						//play duck animation;
+					}
+					if (currentInputState == inputState.Jump) {
+						if(facingDir == facing.Right)
+							physVel.x = moveVel*20;
+						if(facingDir == facing.Left)
+							physVel.x = -moveVel*20;
+						}
+					}
+				}
+
+				}
 						// use raycasts to determine if the player is standing on the ground or not
 						if (Physics2D.Raycast (new Vector2 (_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .26f, groundMask) 
 								|| Physics2D.Raycast (new Vector2 (_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .26f, groundMask)) {
@@ -127,7 +178,7 @@ public class Character : MonoBehaviour
 						_rigidbody.velocity = new Vector2 (physVel.x, _rigidbody.velocity.y);
 				}
 
-		}
+		
 	// Collision with the keys
 	void OnTriggerEnter2D(Collider2D other)
 	{
