@@ -50,7 +50,7 @@ public class Character : MonoBehaviour
 
 	// raycast stuff
 	private RaycastHit2D hit;
-	private Vector2 physVel = new Vector2();
+	public Vector2 physVel = new Vector2();
 	[HideInInspector] public bool grounded = false;
 	private int groundMask = 1 << 8; // Ground layer mask
 
