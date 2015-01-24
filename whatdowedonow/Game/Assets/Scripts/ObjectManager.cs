@@ -23,36 +23,27 @@ public class ObjectManager : MonoBehaviour {
 	void checkObjectInistiate(){
 
 		if (randomObjectNumber == 1) {
-			Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-
+			Instantiate(goalObject1);
 				}
 		if (randomObjectNumber == 2) {
-			Instantiate(goalObject2, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(goalObject2);
 				}
 		if (randomObjectNumber == 3) {
-			Instantiate(goalObject3, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(goalObject3);
 				}
 		if (randomObjectNumber == 4) {
-			Instantiate(goalObject4, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(goalObject4);
 				}
 		if (randomObjectNumber == 5) {
-			Instantiate(goalObject5, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(goalObject5);
 				}
 		if (randomObjectNumber == 6) {
-			Instantiate(goalObject6, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate(goalObject6);
 				}
 		}
 	
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	public void Objective1()
-	{
-		if (randomObjectNumber == 1) 
-		{
-			Debug.Log ("Objective 1 reached!");
-		}
 	}
 }

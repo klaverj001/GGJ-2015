@@ -33,17 +33,11 @@ public class Character : MonoBehaviour
 	protected Rigidbody2D _rigidbody;
 
 	// edit these to tune character movement	
-    //private float runVel = 2.5f; 	// run speed when not carrying the ball
-    //private float walkVel = 4f; 	// walk speed while carrying ball
-    //private float jumpVel = 4f; 	// jump velocity
-    //private float jump2Vel = 2f; 	// double jump velocity
-    //private float fallVel = 1f;		// fall velocity, gravity
-
-    private float runVel = 2.5f; 	// run speed when not carrying the ball
-    private float walkVel = 4f; 	// walk speed while carrying ball
-    private float jumpVel = 4f; 	// jump velocity
-    private float jump2Vel = 6f; 	// double jump velocity
-    private float fallVel = 2f;		// fall velocity, gravity
+	private float runVel = 2.5f; 	// run speed when not carrying the ball
+	private float walkVel = 2f; 	// walk speed while carrying ball
+	private float jumpVel = 4f; 	// jump velocity
+	private float jump2Vel = 2f; 	// double jump velocity
+	private float fallVel = 1f;		// fall velocity, gravity
 
 	public static float moveVel;
 	public static float pVel = 0f;
@@ -120,7 +114,7 @@ public class Character : MonoBehaviour
 					}
 					// jump
 					if (currentInputState == inputState.Jump) {
-						if (jumps < maxJumps) {
+						if (jumps < maxJumps && _transform.position.y < 3.4) {
 							jumps += 1;
 							_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
 							
