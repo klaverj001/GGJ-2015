@@ -22,6 +22,5 @@ public class SpikeTrap : MonoBehaviour {
 			Destroy(other.gameObject, 0.2f);
 			Debug.Log("destroyed");
 		}
-
 	}
 }
