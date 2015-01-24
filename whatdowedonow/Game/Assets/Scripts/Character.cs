@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
 	[HideInInspector] public Vector3 spawnPos;
 	
 	protected Transform _transform;
-	protected Rigidbody2D _rigidbody;
+	protected Rigidbody _rigidbody;
 
 	// edit these to tune character movement	
 	private float runVel = 2.5f; 	// run speed when not carrying the ball
@@ -49,7 +49,7 @@ public class Character : MonoBehaviour
 	public virtual void Awake()
 	{
 		_transform = transform;
-		_rigidbody = rigidbody2D;
+		_rigidbody = rigidbody;
 	}
 	
 	// Use this for initialization
