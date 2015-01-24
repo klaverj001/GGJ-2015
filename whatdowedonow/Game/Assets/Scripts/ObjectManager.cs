@@ -48,11 +48,34 @@ public class ObjectManager : MonoBehaviour {
 	
 	}
 
-	public void Objective1()
+	public void Objective(int objectiveNumber)
 	{
-		if (randomObjectNumber == 1) 
+		if (randomObjectNumber == objectiveNumber) 
 		{
-			Debug.Log ("Objective 1 reached!");
+			switch (objectiveNumber)
+			{
+			case 1:
+				Debug.Log ("Objective 1 reached!");
+				break;
+			case 2:
+				Debug.Log ("Objective 2 reached!");
+				break;
+			case 3:
+				Debug.Log ("Objective 3 reached!");
+				break;
+			case 4:
+				Debug.Log ("Objective 4 reached!");
+				break;
+			case 5:
+				Debug.Log ("Objective 5 reached!");
+				break;
+			case 6:
+				Debug.Log ("Objective 6 reached!");
+				break;
+			default:
+				Debug.Log ("No valid objective...");
+				break;
+			}
 		}
 	}
 }
