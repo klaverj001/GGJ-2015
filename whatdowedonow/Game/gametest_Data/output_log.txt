@@ -19,7 +19,3 @@ desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 XInput1_3.dll not found.
 <RI> Input initialized.
 Platform assembly: C:\Users\pansee\Desktop\GGJ-2015\whatdowedonow\Game\gametest_Data\Managed\System.Core.dll (this message is harmless)
-The server has disconnected from the client. Most likely the server has shut down.
- 
-(Filename:  Line: 745)
-
