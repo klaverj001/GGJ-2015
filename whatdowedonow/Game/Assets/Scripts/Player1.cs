@@ -99,36 +99,29 @@ public class Player1 : Character
 		Character.alive = false;
 	}
 
-
 	private float lastSynchronizationTime = 0f;
 	private float syncDelay = 0f;
 	private float syncTime = 0f;
 	private Vector3 syncStartPosition = Vector3.zero;
 	private Vector3 syncEndPosition = Vector3.zero;
-	
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
 	{
 		Vector3 syncPosition = Vector3.zero;
-		Vector3 syncVelocity = Vector3.zero;
 		if (stream.isWriting)
 		{
 			syncPosition = rigidbody.position;
 			stream.Serialize(ref syncPosition);
-			
-			syncVelocity = rigidbody.velocity;
-			stream.Serialize(ref syncVelocity);
 		}
 		else
 		{
 			stream.Serialize(ref syncPosition);
-			stream.Serialize(ref syncVelocity);
 			
 			syncTime = 0f;
 			syncDelay = Time.time - lastSynchronizationTime;
 			lastSynchronizationTime = Time.time;
 			
-			syncEndPosition = syncStartPosition + syncVelocity * syncDelay;
 			syncStartPosition = rigidbody.position;
+			syncEndPosition = syncPosition;
 		}
 	}
 }
