@@ -63,6 +63,7 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	public virtual void Start () 
 	{
+		this.particleSystem.Stop();
 		moveVel = walkVel;
 	}
 	
@@ -99,11 +100,13 @@ public class Character : MonoBehaviour
 				{
 					// move left
 					if (currentInputState == inputState.WalkLeft) {
+						facingDir = facing.Left;
 						physVel.x = -moveVel;
 					}
 					
 					// move right
 					if (currentInputState == inputState.WalkRight) {
+						facingDir = facing.Right;
 						physVel.x = moveVel;
 					}
 					if (currentInputState == inputState.Duck) {
@@ -122,11 +125,13 @@ public class Character : MonoBehaviour
 				{
 						// move left
 						if (currentInputState == inputState.WalkLeft) {
+								facingDir = facing.Left;
 								physVel.x = moveVel;
 						}
 
 						// move right
 						if (currentInputState == inputState.WalkRight) {
+								facingDir = facing.Right;
 								physVel.x = -moveVel;
 						}
 						if (currentInputState == inputState.Duck) {
@@ -144,11 +149,13 @@ public class Character : MonoBehaviour
 				{
 					// move left
 					if (currentInputState == inputState.WalkLeft) {
+						facingDir = facing.Left;
 						physVel.x = -moveVel;
 					}
 					
 					// move right
 					if (currentInputState == inputState.WalkRight) {
+						facingDir = facing.Right;
 						physVel.x = moveVel;
 					}
 					if (currentInputState == inputState.Duck) {
@@ -165,11 +172,13 @@ public class Character : MonoBehaviour
 
 				}
 						// use raycasts to determine if the player is standing on the ground or not
-						if (Physics2D.Raycast (new Vector2 (_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .26f, groundMask) 
-								|| Physics2D.Raycast (new Vector2 (_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .26f, groundMask)) {
+						if (Physics2D.Raycast (new Vector2 (_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .6f, groundMask) 
+								|| Physics2D.Raycast (new Vector2 (_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .6f, groundMask)) {
+								print ("i touch the ground");
 								grounded = true;
 								jumps = 0;
 						} else {
+								print ("i dont touch the ground");
 								grounded = false;
 								_rigidbody.AddForce (-Vector3.up * fallVel);
 						}
@@ -177,19 +186,8 @@ public class Character : MonoBehaviour
 						// actually move the player
 						_rigidbody.velocity = new Vector2 (physVel.x, _rigidbody.velocity.y);
 				}
-
-		
-	// Collision with the keys
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.gameObject.name == "KMA_Key_sprite")
-		{
-			Debug.Log("Key moet destroyed worden");
-			Destroy(other.gameObject);
-			GameManager.numberOfKeysLeft--;
-		}
-	}
 	
+
 }
 
 public enum MyTeam 
