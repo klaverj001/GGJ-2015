@@ -60,19 +60,21 @@ public class Player1 : Character
 								if (Input.GetKeyDown (KeyCode.DownArrow)) { 
 										currentInputState = inputState.Duck;
 								}
-							}
 								UpdatePhysics ();
+							}
+							else
+							{
+								SyncedMovement();
+							}
+								
 						}
-		else
-		{
-			SyncedMovement();
-		}
+
 	}
 	
 	private void SyncedMovement()
 	{
 		syncTime += Time.deltaTime;
-		//rigidbody2D.position = Vector2.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+		rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
 	}
 	
 	public void Respawn()
@@ -110,27 +112,24 @@ public class Player1 : Character
 		Vector3 syncVelocity = Vector3.zero;
 		if (stream.isWriting)
 		{
-			syncPosition = rigidbody2D.position;
+			syncPosition = rigidbody.position;
 			stream.Serialize(ref syncPosition);
 			
-			syncVelocity = rigidbody2D.velocity;
+			syncVelocity = rigidbody.velocity;
 			stream.Serialize(ref syncVelocity);
-
-
 		}
 		else
 		{
 			stream.Serialize(ref syncPosition);
 			stream.Serialize(ref syncVelocity);
-
 			
 			syncTime = 0f;
 			syncDelay = Time.time - lastSynchronizationTime;
 			lastSynchronizationTime = Time.time;
 			
-			syncEndPosition = syncPosition + syncVelocity * syncDelay;
-			syncStartPosition = rigidbody2D.position;
+			syncEndPosition = syncStartPosition + syncVelocity * syncDelay;
+			syncStartPosition = rigidbody.position;
 		}
 	}
-	}
+}
 
