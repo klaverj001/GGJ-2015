@@ -10,7 +10,7 @@ public class ObjectiveEnd : MonoBehaviour {
 	{
         if (other.gameObject.tag == "Player")
         {
-            game.GetComponent<ObjectManager>().Objective1();
+            game.GetComponent<ObjectManager>().Objective(1);
         }
 	}
 }
