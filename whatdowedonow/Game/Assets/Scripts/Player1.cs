@@ -74,7 +74,7 @@ public class Player1 : Character
 	private void SyncedMovement()
 	{
 		syncTime += Time.deltaTime;
-		rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+		rigidbody2D.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
 	}
 	
 	public void Respawn()
@@ -108,7 +108,7 @@ public class Player1 : Character
 		Vector3 syncPosition = Vector3.zero;
 		if (stream.isWriting)
 		{
-			syncPosition = rigidbody.position;
+			syncPosition = rigidbody2D.position;
 			stream.Serialize(ref syncPosition);
 		}
 		else
@@ -119,7 +119,7 @@ public class Player1 : Character
 			syncDelay = Time.time - lastSynchronizationTime;
 			lastSynchronizationTime = Time.time;
 			
-			syncStartPosition = rigidbody.position;
+			syncStartPosition = rigidbody2D.position;
 			syncEndPosition = syncPosition;
 		}
 	}
