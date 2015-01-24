@@ -4,6 +4,7 @@ using System.Collections;
 public class ObjectManager : MonoBehaviour {
 
 	private int randomObjectNumber;
+	private int firstTimeObjective2 = 1;
 
 	public GameObject goalObject1;
 	public GameObject goalObject2;
@@ -44,8 +45,13 @@ public class ObjectManager : MonoBehaviour {
 		}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+		if (Character.alive == false && firstTimeObjective2 != 0) 
+		{
+			Objective(2);
+			firstTimeObjective2 = 0;
+		}
 	}
 
 	public void Objective(int objectiveNumber)
