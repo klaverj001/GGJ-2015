@@ -63,6 +63,7 @@ public class Character : MonoBehaviour
 	// Use this for initialization
 	public virtual void Start () 
 	{
+		this.particleSystem.Stop();
 		moveVel = walkVel;
 	}
 	
