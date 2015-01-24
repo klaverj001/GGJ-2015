@@ -8,9 +8,9 @@ public class ObjectiveEnd : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.GetComponent ("Player1")) 
-		{
-			game.GetComponent<ObjectManager>().Objective1();
-		}
+        if (other.gameObject.tag == "Player")
+        {
+            game.GetComponent<ObjectManager>().Objective1();
+        }
 	}
 }
