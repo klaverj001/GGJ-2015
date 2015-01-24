@@ -3,16 +3,19 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour {
 
-	private const string typeName = "UniqueGameName";
-	private const string gameName = "RoomName";
+	private const string typeName = "FriendVsFoe";
+	private const string gameName = "Epicness";
 	public GameObject playerPrefab;
-	
+
 	private void StartServer()
 	{
-		Network.InitializeServer(6, 25000, !Network.HavePublicAddress());
+		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
 	}
-
+	void CloseServers()
+	{
+		Network.Disconnect();
+	}
 	void OnServerInitialized()
 	{
 		SpawnPlayer();
@@ -27,7 +30,9 @@ public class NetworkManager : MonoBehaviour {
 			
 			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
 				RefreshHostList();
-			
+
+			if (GUI.Button(new Rect(100, 400, 250, 100), "Kill all connections"))
+				CloseServers();
 			if (hostList != null)
 			{
 				for (int i = 0; i < hostList.Length; i++)
