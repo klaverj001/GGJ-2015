@@ -19,6 +19,13 @@ public class Spikes : MonoBehaviour {
         {
             Debug.Log("FIRED");
             Destroy(this.gameObject);
+
+            c.particleSystem.Play();
+            Character.alive = false;
+            Time.timeScale = 0.1f;
+            c.gameObject.GetComponent("Player1").GetComponent<Player1>();
+            Destroy(c.gameObject, 0.2f);
+            Debug.Log("destroyed");
         }
     }
 }
