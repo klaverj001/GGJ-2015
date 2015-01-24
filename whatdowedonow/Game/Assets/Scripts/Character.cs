@@ -174,11 +174,9 @@ public class Character : MonoBehaviour
 						// use raycasts to determine if the player is standing on the ground or not
 						if (Physics2D.Raycast (new Vector2 (_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .6f, groundMask) 
 								|| Physics2D.Raycast (new Vector2 (_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .6f, groundMask)) {
-								print ("i touch the ground");
 								grounded = true;
 								jumps = 0;
 						} else {
-								print ("i dont touch the ground");
 								grounded = false;
 								_rigidbody.AddForce (-Vector3.up * fallVel);
 						}

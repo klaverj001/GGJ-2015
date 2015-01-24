@@ -28,6 +28,6 @@ public class xa : MonoBehaviour
 		// cache these so they can be accessed by other scripts
 		gameManager = gameObject.GetComponent<GameManager>();
 		audioManager = gameObject.GetComponent<AudioManager>();
-		player1 = GameObject.Find("Player1").GetComponent<Player1>();
+		//player1 = GameObject.Find("Player1").GetComponent<Player1>();
 	}
 }
