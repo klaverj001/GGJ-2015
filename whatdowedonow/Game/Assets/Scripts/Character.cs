@@ -100,11 +100,13 @@ public class Character : MonoBehaviour
 				{
 					// move left
 					if (currentInputState == inputState.WalkLeft) {
+						facingDir = facing.Left;
 						physVel.x = -moveVel;
 					}
 					
 					// move right
 					if (currentInputState == inputState.WalkRight) {
+						facingDir = facing.Right;
 						physVel.x = moveVel;
 					}
 					if (currentInputState == inputState.Duck) {
@@ -123,11 +125,13 @@ public class Character : MonoBehaviour
 				{
 						// move left
 						if (currentInputState == inputState.WalkLeft) {
+								facingDir = facing.Left;
 								physVel.x = moveVel;
 						}
 
 						// move right
 						if (currentInputState == inputState.WalkRight) {
+								facingDir = facing.Right;
 								physVel.x = -moveVel;
 						}
 						if (currentInputState == inputState.Duck) {
@@ -145,11 +149,13 @@ public class Character : MonoBehaviour
 				{
 					// move left
 					if (currentInputState == inputState.WalkLeft) {
+						facingDir = facing.Left;
 						physVel.x = -moveVel;
 					}
 					
 					// move right
 					if (currentInputState == inputState.WalkRight) {
+						facingDir = facing.Right;
 						physVel.x = moveVel;
 					}
 					if (currentInputState == inputState.Duck) {

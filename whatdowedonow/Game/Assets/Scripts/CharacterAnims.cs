@@ -53,7 +53,7 @@ public class CharacterAnims : MonoBehaviour
 		{
 			currentAnim = anim.WalkLeft;
 			_animator.SetInteger(_animState, 1);
-			_transform.localScale = new Vector3(1,1,1);
+			_transform.localScale = new Vector3(-1,1,1);
 		}
 
 		// stand left
@@ -69,7 +69,7 @@ public class CharacterAnims : MonoBehaviour
 		{
 			currentAnim = anim.WalkRight;
 			_animator.SetInteger(_animState, 1);
-			_transform.localScale = new Vector3(-1,1,1);
+			_transform.localScale = new Vector3(1,1,1);
 		}
 
 		// stand right
@@ -85,7 +85,7 @@ public class CharacterAnims : MonoBehaviour
 		{
 			currentAnim = anim.FallLeft;
 			_animator.SetInteger(_animState, 2);
-			_transform.localScale = new Vector3(1,1,1);
+			_transform.localScale = new Vector3(-1,1,1);
 		}
 
 		// fall or jump right
@@ -93,7 +93,7 @@ public class CharacterAnims : MonoBehaviour
 		{
 			currentAnim = anim.FallRight;
 			_animator.SetInteger(_animState, 2);
-			_transform.localScale = new Vector3(-1,1,1);
+			_transform.localScale = new Vector3(1,1,1);
 		}
 	}
 }
