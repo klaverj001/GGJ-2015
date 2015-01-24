@@ -12,6 +12,7 @@ public class ObjectManager : MonoBehaviour {
 	public GameObject goalObject4;
 	public GameObject goalObject5;
 	public GameObject goalObject6;
+	public GameObject player;
 
 	protected int count;
 
@@ -100,6 +101,18 @@ public class ObjectManager : MonoBehaviour {
 		{
 			Objective(2);
 			firstTimeObjective2 = 0;
+		}
+		if(Input.GetKey(KeyCode.R))
+		{
+			Debug.Log("player?" + Player1.alive);
+			if(Player1.alive == true){
+				Player1.FindObjectOfType<Player1>().Respawn();
+			}
+			else if(Player1.alive == false){
+				Instantiate(player, new Vector3(2, 10, 0), Quaternion.identity);
+				player.GetComponents("player1").Initialize();
+				Time.timeScale = 1;
+			}
 		}
 	}
 

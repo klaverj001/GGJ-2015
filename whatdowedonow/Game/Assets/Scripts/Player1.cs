@@ -25,7 +25,7 @@ public class Player1 : Character
 			Application.LoadLevel(0);
 		}
 
-			//UpdateMovement();
+		//UpdateMovement();
 		FixedUpdate ();
 		
 
@@ -82,7 +82,6 @@ public class Player1 : Character
 		if(alive == true)
 		{
 			_transform.position = spawnPos;
-			hasBall = false;
 		}
 	}
 
