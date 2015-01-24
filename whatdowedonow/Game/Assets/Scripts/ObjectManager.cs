@@ -47,4 +47,12 @@ public class ObjectManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void Objective1()
+	{
+		if (randomObjectNumber == 1) 
+		{
+			Debug.Log ("Objective 1 reached!");
+		}
+	}
 }
