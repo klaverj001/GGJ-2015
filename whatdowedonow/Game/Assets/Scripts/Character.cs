@@ -41,9 +41,9 @@ public class Character : MonoBehaviour
 
     private float runVel = 2.5f; 	// run speed when not carrying the ball
     private float walkVel = 4f; 	// walk speed while carrying ball
-    private float jumpVel = 15f; 	// jump velocity
+    private float jumpVel = 4f; 	// jump velocity
     private float jump2Vel = 6f; 	// double jump velocity
-    private float fallVel = 13f;		// fall velocity, gravity
+    private float fallVel = 2f;		// fall velocity, gravity
 
 	public static float moveVel;
 	public static float pVel = 0f;
