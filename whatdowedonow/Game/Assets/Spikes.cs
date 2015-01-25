@@ -8,6 +8,12 @@ public class Spikes : MonoBehaviour {
     bool wannaReset = false;
     float timeToReset = 0.4f;
     float resetTimer;
+
+	private float timer = 0f;
+	public float timerSeconds = 2.0f;
+	private bool timerActive = false;
+	private Collider2D player;
+	Player1 p1;
 	// Use this for initialization
 	void Start () {
         oriPos = this.transform.position;
@@ -26,21 +32,31 @@ public class Spikes : MonoBehaviour {
                 wannaReset = false;
             }
         }
+		if (timerActive == true) 
+		{
+			timer += Time.deltaTime;
+			
+			if(timer >= timerSeconds)
+			{
+				timerActive = false;
+				player.gameObject.GetComponent ("Player1").GetComponent<Player1>().Respawn ();
+				timer = 0f;
+				player.particleSystem.Stop();
+				p1 = player.GetComponent<Player1>();
+				p1.setPlayerAlive(true);
+			}
+		}
 	}
     void OnTriggerEnter2D(Collider2D c)
     {
        
         if (c.gameObject.tag == "Player")
         {
-            Debug.Log("FIRED");
-            Destroy(this.gameObject);
-
-            c.particleSystem.Play();
-            Character.alive = false;
-            Time.timeScale = 0.1f;
-            c.gameObject.GetComponent("Player1").GetComponent<Player1>();
-            Destroy(c.gameObject, 0.2f);
-            Debug.Log("destroyed");
+			c.particleSystem.Play();
+			Player1 p1 = c.GetComponent<Player1>();	
+			p1.setPlayerAlive(false);
+			timerActive = true;
+			this.player = c;
         }
         else
         {
@@ -49,7 +65,6 @@ public class Spikes : MonoBehaviour {
     }
     void resetThisThing()
     {
-        Debug.Log("reset");
         this.transform.position = oriPos;
         this.gameObject.rigidbody2D.velocity = new Vector2(0, 0);
     }

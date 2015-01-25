@@ -39,7 +39,6 @@ public class SpikeTrap : MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
-				Debug.Log ("in on trigger");
 				if (other.gameObject.GetComponent ("Player1")) {
 						other.particleSystem.Play();
 						Player1 p1 = other.GetComponent<Player1>();	

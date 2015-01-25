@@ -28,7 +28,6 @@ public class FallingPlatform : MonoBehaviour {
     {
         if (c.gameObject.tag == "Player")
         {
-            Debug.Log("We gonna DROP");
             wannadrop = true;
         }
     }
