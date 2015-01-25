@@ -18,9 +18,7 @@ public class Objective6 : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.tag == "Player" && !CharacterAnims.checkObjective6) {
-						game.GetComponent<ObjectManager> ().Objective (6);
-				} else if (other.gameObject.tag == "Player" && CharacterAnims.checkObjective6) {
-			Debug.Log("LEVEL FAILED!");
-				}
+						game.GetComponent<ObjectManager> ().Objective (5);
+				} 
 	}
 }

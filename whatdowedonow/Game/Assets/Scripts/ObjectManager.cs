@@ -4,7 +4,7 @@ using System.Collections;
 public class ObjectManager : MonoBehaviour
 {
 
-		private int randomObjectNumber;
+		public static int randomObjectNumber;
 		private int firstTimeObjective2 = 1;
 		public GameObject goalObject1;
 		public GameObject goalObject2;
