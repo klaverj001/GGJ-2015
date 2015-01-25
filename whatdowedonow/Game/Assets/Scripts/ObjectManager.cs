@@ -98,21 +98,21 @@ public class ObjectManager : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-			player.particleSystem.Stop ();
+				player.particleSystem.Stop ();
 				if (Character.alive == false && firstTimeObjective2 != 0) {
 						Objective (2);
 						firstTimeObjective2 = 0;
 				}
 				if (Input.GetKey (KeyCode.R)) {
-								if (Player1.alive == true) {
-										Player1.FindObjectOfType<Player1> ().Respawn ();
-								} else if (Player1.alive == false) {
+						if (Player1.alive == true) {
+								Player1.FindObjectOfType<Player1> ().Respawn ();
+						} else if (Player1.alive == false) {
 		
-										Player1.alive = true;
-										//player.transform.position = new Vector3(0f,10f,0f);
+								Player1.alive = true;
+								//player.transform.position = new Vector3(0f,10f,0f);
 										
-										Instantiate (player, new Vector3 (2, 10, 0), Quaternion.identity);
-								}
+								Instantiate (player, new Vector3 (2, 10, 0), Quaternion.identity);
+						}
 				}
 		}
 
@@ -122,21 +122,57 @@ public class ObjectManager : MonoBehaviour
 						switch (objectiveNumber) {
 						case 1:
 								Debug.Log ("Objective 1 reached!");
+								if (Player1.Level1) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
+								}
+								if (Player1.Level2) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
+								}
 								break;
 						case 2:
 								Debug.Log ("Objective 2 reached!");
+								if (Player1.Level1) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
+								}
+								if (Player1.Level2) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
+								}
 								break;
 						case 3:
 								Debug.Log ("Objective 3 reached!");
+								if (Player1.Level1) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
+								}
+								if (Player1.Level2) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
+								}
 								break;
 						case 4:
 								Debug.Log ("Objective 4 reached!");
+								if (Player1.Level1) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
+								}
+								if (Player1.Level2) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
+								}
 								break;
 						case 5:
 								Debug.Log ("Objective 5 reached!");
+								if (Player1.Level1) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
+								}
+								if (Player1.Level2) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
+								}
 								break;
 						case 6:
 								Debug.Log ("Objective 6 reached!");
+								if (Player1.Level1) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
+								}
+								if (Player1.Level2) {
+										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
+								}
 								break;
 						default:
 								Debug.Log ("No valid objective...");

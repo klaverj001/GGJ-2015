@@ -4,6 +4,11 @@ using System.Collections;
 public class Player1 : Character 
 {	
 	public static Object player;
+	public static Vector3 Spawn2;
+	public static Vector3 Spawn3;
+	public static bool Level1 = true;
+	public static bool Level2 = false;
+	public static bool Level3 = false;
 
 
 	// Use this for initialization
@@ -30,6 +35,30 @@ public class Player1 : Character
 		
 
 
+	}
+
+	public void SpawnToLevel2()
+	{
+		Spawn2 = GameObject.FindGameObjectWithTag("Level2").transform.position;
+		Debug.Log("spawn 2 position" + Spawn2);
+		if(alive == true)
+		{
+			_transform.position = Spawn2;
+			Level1 = false;
+			Level2 = true;
+		}
+	}
+
+	public void SpawnToLevel3()
+	{
+		Spawn3 = GameObject.FindGameObjectWithTag("Level3").transform.position;
+		Debug.Log("spawn 3 position" + Spawn3);
+		if(alive == true)
+		{
+			_transform.position = Spawn3;
+			Level2 = false;
+			Level3 = true;
+		}
 	}
 
 	public void FixedUpdate()
@@ -71,9 +100,26 @@ public class Player1 : Character
 	
 	public void Respawn()
 	{
-		if(alive == true)
+		if(alive == true && Level1)
 		{
 			_transform.position = spawnPos;
+			Level1 = true;
+			Level2 = false;
+			Level3 = false;
+		}
+		if(alive == true && Level2)
+		{
+			SpawnToLevel2();
+			Level1 = false;
+			Level2 = true;
+			Level3 = false;
+		}
+		if(alive == true && Level2)
+		{
+			SpawnToLevel3();
+			Level1 = false;
+			Level2 = true;
+			Level3 = false;
 		}
 	}
 

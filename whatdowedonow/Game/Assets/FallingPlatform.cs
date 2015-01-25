@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class FallingPlatform : MonoBehaviour {
-    float timeToDrop = 0.4f;
+    float timeToDrop = 0.8f;
     float dropTimer;
     bool wannadrop = false;
 
