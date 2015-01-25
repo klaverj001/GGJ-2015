@@ -63,38 +63,48 @@ public class Player1 : Character
 
 	public void FixedUpdate()
 	{
-				// inputstate is none unless one of the movement keys are pressed
-				currentInputState = inputState.None;
-				currentControlType = controltype.Controls1;
-						if (Character.alive == true) 
-						{
-							if (networkView.isMine) 
-							{	
-								
-								// move left
-								if (Input.GetKey (KeyCode.LeftArrow)) { 
-										currentInputState = inputState.WalkLeft;
-										facingDir = facing.Left;
-								}
+		// inputstate is none unless one of the movement keys are pressed
+		currentInputState = inputState.None;
 
-								// move right
-								if (Input.GetKey (KeyCode.RightArrow) && currentInputState != inputState.WalkLeft) { 
-										currentInputState = inputState.WalkRight;
-										facingDir = facing.Right;
-								}
+		// Check the controls for the current level
+		if (Level1 == true) {
+			currentControlType = controltype.Controls1;
+		} 
+		else if (Level2 == true) {
+			currentControlType = controltype.Controls2;
+		} 
+		else if (Level3 == true) {
+			currentControlType = controltype.Controls3;
+		}
 
-								// jump
-								if (Input.GetKeyDown (KeyCode.UpArrow)) { 
-										currentInputState = inputState.Jump;
-								}
-								if (Input.GetKeyDown (KeyCode.DownArrow)) { 
-										currentInputState = inputState.Duck;
-								}
-								
-							}
-								UpdatePhysics ();
-						}
+		if (Character.alive == true) 
+		{
+			if (networkView.isMine) 
+			{	
+				
+				// move left
+				if (Input.GetKey (KeyCode.LeftArrow)) { 
+						currentInputState = inputState.WalkLeft;
+						facingDir = facing.Left;
+				}
 
+				// move right
+				if (Input.GetKey (KeyCode.RightArrow) && currentInputState != inputState.WalkLeft) { 
+						currentInputState = inputState.WalkRight;
+						facingDir = facing.Right;
+				}
+
+				// jump
+				if (Input.GetKeyDown (KeyCode.UpArrow)) { 
+						currentInputState = inputState.Jump;
+				}
+				if (Input.GetKeyDown (KeyCode.DownArrow)) { 
+						currentInputState = inputState.Duck;
+				}
+				
+			}
+				UpdatePhysics ();
+		}
 	}
 
 	
