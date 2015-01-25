@@ -11,7 +11,6 @@ public class ObjectManager : MonoBehaviour
 		public GameObject goalObject3;
 		public GameObject goalObject4;
 		public GameObject goalObject5;
-		public GameObject goalObject6;
 		public GameObject player;
 		protected int count;
 
@@ -23,7 +22,7 @@ public class ObjectManager : MonoBehaviour
 
 		public void randomNumber ()
 		{
-				randomObjectNumber = Random.Range (1, 6);
+				randomObjectNumber = Random.Range (1, 5);
 				Debug.Log (randomObjectNumber);
 		
 				checkObjectInistiate ();
@@ -87,17 +86,6 @@ public class ObjectManager : MonoBehaviour
 								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
 						}
 				}
-				if (randomObjectNumber == 6) {
-						if (count == 1) {
-								Instantiate (goalObject1, new Vector3 (-20, 4.5f, 0), Quaternion.identity);
-						}
-						if (count == 2) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
-						}
-						if (count == 3) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
-						}
-				}
 		}
 	
 		// Update is called once per frame
@@ -151,14 +139,6 @@ public class ObjectManager : MonoBehaviour
 								break;
 						case 5:
 								Debug.Log ("Objective 5 reached!");
-								if (Player1.Level1) {
-										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								} else if (Player1.Level2) {
-										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
-								}
-								break;
-						case 6:
-								Debug.Log ("Objective 6 reached!");
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								} else if (Player1.Level2) {
