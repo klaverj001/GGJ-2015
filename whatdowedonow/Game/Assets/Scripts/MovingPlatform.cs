@@ -36,16 +36,12 @@ public class MovingPlatform : MonoBehaviour {
 	}
 	
 	//OncollisionEnter
-	void OnCollisionEnter2D (Collision2D other) 
+	void OnCollisionStay2D (Collision2D other) 
 	{
-		if (other.gameObject.GetComponent("Player1")) 
-		{
-			emptyPlatform.transform.parent = transform;
-			other.transform.parent = emptyPlatform.transform;
-		}
-		
+				if (other.gameObject.GetComponent ("Player1")) {
+						emptyPlatform.transform.parent = transform;
+				}
 	}
-
 	//OncollisionExit
 	void OnCollisionExit2D (Collision2D other) 
 	{

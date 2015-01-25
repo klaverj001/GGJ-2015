@@ -56,7 +56,7 @@ public class Character : MonoBehaviour
 
 	// raycast stuff
 	private RaycastHit2D hit;
-	public Vector2 physVel = new Vector2();
+	public Vector3 physVel = new Vector3();
 	[HideInInspector] public bool grounded = false;
 	private int groundMask = 1 << 8; // Ground layer mask
 
@@ -94,12 +94,13 @@ public class Character : MonoBehaviour
 
 	public virtual void UpdatePhysics()
 	{
+
 				if (xa.gameOver == true || alive == false)
 						return;
 
 				if (alive == true) {
 
-						physVel = Vector2.zero;
+						physVel = Vector3.zero;
 					if (networkView.isMine)
 					{
 				if (currentControlType == controltype.Controls1)
@@ -143,7 +144,7 @@ public class Character : MonoBehaviour
 						if (currentInputState == inputState.Duck) {
 						if (jumps < maxJumps && _transform.position.y < 3.4) {
 							jumps += 1;
-							_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
+							physVel.y = jumpVel;
 						}
 						// jump
 						if (currentInputState == inputState.Jump) {

@@ -40,7 +40,8 @@ public class Player1 : Character
 						if (Character.alive == true) 
 						{
 							if (networkView.isMine) 
-							{
+							{	
+								
 								// move left
 								if (Input.GetKey (KeyCode.LeftArrow)) { 
 										currentInputState = inputState.WalkLeft;
@@ -60,22 +61,13 @@ public class Player1 : Character
 								if (Input.GetKeyDown (KeyCode.DownArrow)) { 
 										currentInputState = inputState.Duck;
 								}
-								UpdatePhysics ();
-							}
-							else
-							{
-								SyncedMovement();
-							}
 								
+							}
+								UpdatePhysics ();
 						}
 
 	}
-	
-	private void SyncedMovement()
-	{
-		syncTime += Time.deltaTime;
-		rigidbody2D.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
-	}
+
 	
 	public void Respawn()
 	{
@@ -98,31 +90,21 @@ public class Player1 : Character
 		Destroy (player);
 		Character.alive = false;
 	}
-
-	private float lastSynchronizationTime = 0f;
-	private float syncDelay = 0f;
-	private float syncTime = 0f;
-	private Vector3 syncStartPosition = Vector3.zero;
-	private Vector3 syncEndPosition = Vector3.zero;
+	
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
 	{
-		Vector3 syncPosition = Vector3.zero;
-		if (stream.isWriting)
+		Vector3 syncPos = rigidbody2D.position;
+		Vector3 velocity = rigidbody2D.velocity;
+		
+		stream.Serialize(ref syncPos);
+		stream.Serialize(ref velocity);
+		
+		if (stream.isReading)
 		{
-			syncPosition = rigidbody2D.position;
-			stream.Serialize(ref syncPosition);
+			transform.position = syncPos;
+			physVel = velocity;
 		}
-		else
-		{
-			stream.Serialize(ref syncPosition);
-			
-			syncTime = 0f;
-			syncDelay = Time.time - lastSynchronizationTime;
-			lastSynchronizationTime = Time.time;
-			
-			syncStartPosition = rigidbody2D.position;
-			syncEndPosition = syncPosition;
-		}
+
 	}
 }
 
