@@ -77,6 +77,11 @@ public class Player1 : Character
 		}
 	}
 
+	public void setPlayerAlive(bool boolean)
+	{
+		Character.alive = boolean;
+	}
+
 	public static void GameOver()
 	{
 		Destroy (player);
