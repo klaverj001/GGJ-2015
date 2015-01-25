@@ -6,7 +6,6 @@ public class CharacterAnims : MonoBehaviour
 	private Transform _transform;
 	private Animator _animator;
 	private Character character;
-	public static bool checkObjective6 = false;
 
 	public enum anim 
 	{ 
@@ -52,7 +51,6 @@ public class CharacterAnims : MonoBehaviour
 		// run left
 		if(character.currentInputState == Character.inputState.WalkLeft && character.grounded == true && currentAnim != anim.WalkLeft)
 		{
-			checkObjective6 = true;
 			currentAnim = anim.WalkLeft;
 			_animator.SetInteger(_animState, 1);
 			_transform.localScale = new Vector3(-1,1,1);
