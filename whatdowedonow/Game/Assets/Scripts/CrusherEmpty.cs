@@ -18,10 +18,12 @@ public class CrusherEmpty : MonoBehaviour {
 	{
 		if (other.gameObject.GetComponent("Player1")) 
 		{
-			Character.alive = false;
-			Time.timeScale = 0.1f;
-			other.gameObject.GetComponent("Player1").GetComponent<Player1>();
-			Destroy(other.gameObject, 0.1f);
+			if(networkView.isMine){
+				Character.alive = false;
+				Time.timeScale = 0.1f;
+				other.gameObject.GetComponent("Player1").GetComponent<Player1>();
+				Destroy(other.gameObject, 0.1f);
+			}
 		}
 	}
 }
