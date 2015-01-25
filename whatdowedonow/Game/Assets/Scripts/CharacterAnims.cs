@@ -25,6 +25,8 @@ public class CharacterAnims : MonoBehaviour
 	private int _p2AnimState = Animator.StringToHash("P2AnimState");
 	private int _animState;
 
+	public static bool checkObjective6 = false;
+
 	void Awake()
 	{
 		// cache components to save on performance
@@ -51,6 +53,7 @@ public class CharacterAnims : MonoBehaviour
 		// run left
 		if(character.currentInputState == Character.inputState.WalkLeft && character.grounded == true && currentAnim != anim.WalkLeft)
 		{
+			checkObjective6 = true;
 			currentAnim = anim.WalkLeft;
 			_animator.SetInteger(_animState, 1);
 			_transform.localScale = new Vector3(-1,1,1);
