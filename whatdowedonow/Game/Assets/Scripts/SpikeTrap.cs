@@ -32,7 +32,7 @@ public class SpikeTrap : MonoBehaviour
 				p1.particleSystem.Stop();
 				p1.Respawn();
 				p1.setPlayerAlive(true);
-				GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
+				//GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
 			}
 		}
 		}
