@@ -16,11 +16,16 @@ public class ObjectManager : MonoBehaviour
 		protected int count;
 
 		// Use this for initialization
-		void Start ()
+		public void Start ()
+		{
+				randomNumber ();	
+		}
+
+		public void randomNumber ()
 		{
 				randomObjectNumber = Random.Range (1, 6);
 				Debug.Log (randomObjectNumber);
-
+		
 				checkObjectInistiate ();
 		}
 
@@ -104,7 +109,7 @@ public class ObjectManager : MonoBehaviour
 						firstTimeObjective2 = 0;
 				}
 				if (Input.GetKey (KeyCode.R)) {
-						Player1.FindObjectOfType<Player1>().Respawn ();
+						Player1.FindObjectOfType<Player1> ().Respawn ();
 				}
 		}
 
@@ -116,8 +121,7 @@ public class ObjectManager : MonoBehaviour
 								Debug.Log ("Objective 1 reached!");
 								if (Player1.Level1 && !Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								}
-								else if (Player1.Level2 && !Player1.Level3) {
+								} else if (Player1.Level2 && !Player1.Level3) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -125,8 +129,7 @@ public class ObjectManager : MonoBehaviour
 								Debug.Log ("Objective 2 reached!");
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								}
-								else if (Player1.Level2) {
+								} else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -134,8 +137,7 @@ public class ObjectManager : MonoBehaviour
 								Debug.Log ("Objective 3 reached!");
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								}
-								else if (Player1.Level2) {
+								} else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -143,8 +145,7 @@ public class ObjectManager : MonoBehaviour
 								Debug.Log ("Objective 4 reached!");
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								}
-								else if (Player1.Level2) {
+								} else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -152,8 +153,7 @@ public class ObjectManager : MonoBehaviour
 								Debug.Log ("Objective 5 reached!");
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								}
-								else if (Player1.Level2) {
+								} else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -161,8 +161,7 @@ public class ObjectManager : MonoBehaviour
 								Debug.Log ("Objective 6 reached!");
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
-								}
-								else if (Player1.Level2) {
+								} else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;

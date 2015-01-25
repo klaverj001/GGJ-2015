@@ -100,6 +100,7 @@ public class Player1 : Character
 	
 		public void Respawn ()
 		{
+		GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
 				if (alive == true && Level1) {
 						_transform.position = spawnPos;
 				}
