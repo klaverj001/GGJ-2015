@@ -109,9 +109,13 @@ public class ObjectManager : MonoBehaviour {
 				Player1.FindObjectOfType<Player1>().Respawn();
 			}
 			else if(Player1.alive == false){
-				Instantiate(player, new Vector3(2, 10, 0), Quaternion.identity);
-				player.GetComponents("player1").Initialize();
 				Time.timeScale = 1;
+				Player1.alive = true;
+				//player.transform.position = new Vector3(0f,10f,0f);
+				player.particleSystem.Stop();
+				Instantiate(player, new Vector3(2, 10, 0), Quaternion.identity);
+				//Network.Instantiate(player, new Vector3(0f, 10f, 0f), Quaternion.identity, 0);
+
 			}
 		}
 	}
