@@ -12,12 +12,13 @@ public class ObjectManager : MonoBehaviour {
 	public GameObject goalObject4;
 	public GameObject goalObject5;
 	public GameObject goalObject6;
+	public GameObject player;
 
 	protected int count;
 
 	// Use this for initialization
 	void Start () {
-		randomObjectNumber = Random.Range (1, 1);
+		randomObjectNumber = Random.Range (1, 6);
 		Debug.Log (randomObjectNumber);
 
 		checkObjectInistiate ();
@@ -27,68 +28,68 @@ public class ObjectManager : MonoBehaviour {
 		// Vector3 moet hardcoded gedaan worden per vlag.
 		if (randomObjectNumber == 1) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4.5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 				}
 		if (randomObjectNumber == 2) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4.5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 3) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4.5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 4) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4.5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 5) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4.5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 6) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4.5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		}
@@ -100,6 +101,22 @@ public class ObjectManager : MonoBehaviour {
 		{
 			Objective(2);
 			firstTimeObjective2 = 0;
+		}
+		if(Input.GetKey(KeyCode.R))
+		{
+			Debug.Log("player?" + Player1.alive);
+			if(Player1.alive == true){
+				Player1.FindObjectOfType<Player1>().Respawn();
+			}
+			else if(Player1.alive == false){
+				Time.timeScale = 1;
+				Player1.alive = true;
+				//player.transform.position = new Vector3(0f,10f,0f);
+				player.particleSystem.Stop();
+				Instantiate(player, new Vector3(2, 10, 0), Quaternion.identity);
+				//Network.Instantiate(player, new Vector3(0f, 10f, 0f), Quaternion.identity, 0);
+
+			}
 		}
 	}
 
