@@ -18,7 +18,7 @@ public class ObjectManager : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				randomObjectNumber = Random.Range (1, 6);
+				randomObjectNumber = Random.Range (1, 1);
 				Debug.Log (randomObjectNumber);
 
 				checkObjectInistiate ();
@@ -122,10 +122,11 @@ public class ObjectManager : MonoBehaviour
 						switch (objectiveNumber) {
 						case 1:
 								Debug.Log ("Objective 1 reached!");
-								if (Player1.Level1) {
+								Debug.Log("booleans" + Player1.Level1 + Player1.Level2 + Player1.Level3);
+								if (Player1.Level1 && !Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
-								if (Player1.Level2) {
+								else if (Player1.Level2 && !Player1.Level3) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;

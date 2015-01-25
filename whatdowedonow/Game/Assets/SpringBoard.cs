@@ -31,10 +31,8 @@ public class SpringBoard : MonoBehaviour {
         //&& !firing
         if (c.gameObject.tag == "Player" )
         {
-            Debug.Log("OVERLAP G");
             // c.gameObject.rigidbody2D.velocity.Set(c.gameObject.rigidbody2D.velocity.x, 0.0f);
 //            c.gameObject.GetComponent<Player1>().physVel.Scale(new Vector2(1, 0));
-            Debug.Log(c.gameObject.rigidbody2D.velocity.y);
 
             if (c.gameObject.rigidbody2D.velocity.y < -9)
             {
