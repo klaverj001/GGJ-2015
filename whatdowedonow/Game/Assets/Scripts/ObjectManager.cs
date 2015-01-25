@@ -18,7 +18,9 @@ public class ObjectManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		randomObjectNumber = Random.Range (1, 1);
+
+		randomObjectNumber = Random.Range (1, 6);
+
 		Debug.Log (randomObjectNumber);
 
 		checkObjectInistiate ();
