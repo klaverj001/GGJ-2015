@@ -104,10 +104,11 @@ public class ObjectManager : MonoBehaviour
 				}
 				if (Input.GetKey (KeyCode.R)) {
 						if (networkView.isMine) {
+						Time.timeScale = 1;
 								if (Player1.alive == true) {
 										Player1.FindObjectOfType<Player1> ().Respawn ();
 								} else if (Player1.alive == false) {
-										Time.timeScale = 1;
+		
 										Player1.alive = true;
 										//player.transform.position = new Vector3(0f,10f,0f);
 										player.particleSystem.Stop ();
