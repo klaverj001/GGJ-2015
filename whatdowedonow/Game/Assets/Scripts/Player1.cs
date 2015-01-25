@@ -10,12 +10,8 @@ public class Player1 : Character
 		public static bool Level2 = false;
 		public static bool Level3 = false;
 
-<<<<<<< HEAD
 	private ObjectManager objectmanager;
 
-
-=======
->>>>>>> f2eabfe3ffb03fdc22168a2f5a83748a652e9531
 		// Use this for initialization
 		public override void Start ()
 		{
