@@ -31,7 +31,7 @@ public class Objective5 : MonoBehaviour {
 		{
 			if(timer > 0)
 			{
-				game.GetComponent<ObjectManager>().Objective(5);
+				game.GetComponent<ObjectManager>().Objective(4);
 			}
 		}
 	}
