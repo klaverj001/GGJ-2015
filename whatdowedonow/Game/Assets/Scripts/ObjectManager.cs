@@ -12,7 +12,9 @@ public class ObjectManager : MonoBehaviour
 		public GameObject goalObject4;
 		public GameObject goalObject5;
 		public GameObject player;
-		protected int count;
+		public static int count = 1;
+	private bool checkUpdate = false;
+	private bool checkUpdate2 = false;
 
 		// Use this for initialization
 		public void Start ()
@@ -22,68 +24,55 @@ public class ObjectManager : MonoBehaviour
 
 		public void randomNumber ()
 		{
-				randomObjectNumber = Random.Range (1, 5);
+				randomObjectNumber = Random.Range (3, 3);
 				Debug.Log (randomObjectNumber);
 		
 				checkObjectInistiate ();
 		}
 
-		void checkObjectInistiate ()
+		public void checkObjectInistiate ()
 		{
 				// Vector3 moet hardcoded gedaan worden per vlag.
 				if (randomObjectNumber == 1) {
-						if (count == 1) {
-								Instantiate (goalObject1, new Vector3 (-20, 4.5f, 0), Quaternion.identity);
-						}
-						if (count == 2) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
-						}
-						if (count == 3) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
-						}
+
 				}
 				if (randomObjectNumber == 2) {
 						if (count == 1) {
-								Instantiate (goalObject1, new Vector3 (-20, 4.5f, 0), Quaternion.identity);
+								Instantiate (goalObject2, new Vector3 (27.9f, 3.3f, 0), Quaternion.identity);
 						}
 						if (count == 2) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
+								Instantiate (goalObject2, new Vector3 (70.8f, 3.1f, 0), Quaternion.identity);
+
 						}
 						if (count == 3) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
+								Instantiate (goalObject2, new Vector3 (113.7f, 1.3f, 0), Quaternion.identity);
 						}
 				}
 				if (randomObjectNumber == 3) {
 						if (count == 1) {
-								Instantiate (goalObject1, new Vector3 (-20, 4.5f, 0), Quaternion.identity);
+								Instantiate (goalObject3, new Vector3 (27.9f, 3.3f, 0), Quaternion.identity);
+
 						}
 						if (count == 2) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
+								Instantiate (goalObject3, new Vector3 (70.8f, 3.1f, 0), Quaternion.identity);
+
 						}
 						if (count == 3) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
+								Instantiate (goalObject3, new Vector3 (113.7f, 1.3f, 0), Quaternion.identity);
 						}
 				}
 				if (randomObjectNumber == 4) {
-						if (count == 1) {
-								Instantiate (goalObject1, new Vector3 (-20, 4.5f, 0), Quaternion.identity);
-						}
-						if (count == 2) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
-						}
-						if (count == 3) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
-						}
+
 				}
 				if (randomObjectNumber == 5) {
 						if (count == 1) {
-								Instantiate (goalObject1, new Vector3 (-20, 4.5f, 0), Quaternion.identity);
+								Instantiate (goalObject5, new Vector3 (27.9f, 3.3f, 0), Quaternion.identity);
 						}
 						if (count == 2) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
+								Instantiate (goalObject5, new Vector3 (70.8f, 3.1f, 0), Quaternion.identity);
 						}
 						if (count == 3) {
-								Instantiate (goalObject1, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity);
+								Instantiate (goalObject5, new Vector3 (113.7f, 1.3f, 0), Quaternion.identity);
 						}
 				}
 		}
@@ -99,6 +88,20 @@ public class ObjectManager : MonoBehaviour
 				if (Input.GetKey (KeyCode.R)) {
 						Player1.FindObjectOfType<Player1> ().Respawn ();
 				}
+
+			if (count == 2) {
+						if (!checkUpdate) {
+								checkUpdate = true;
+								checkObjectInistiate ();
+
+						}
+				} else if (count == 3) {
+						if (!checkUpdate2){
+				checkUpdate2 = true;
+				checkObjectInistiate();
+			}
+				}
+
 		}
 
 		public void Objective (int objectiveNumber)
