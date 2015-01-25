@@ -26,10 +26,12 @@ public class SpikeTrap : MonoBehaviour
 			if(timer >= timerSeconds)
 			{
 				timerActive = false;
-				player.gameObject.GetComponent ("Player1").GetComponent<Player1> ().Respawn ();
+				//player.gameObject.GetComponent ("Player1").GetComponent<Player1> ().Respawn ();
+
 				timer = 0f;
 				player.particleSystem.Stop();
 				p1 = player.GetComponent<Player1>();
+				p1.Respawn();
 				p1.setPlayerAlive(true);
 			}
 		}
