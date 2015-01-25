@@ -13,7 +13,7 @@ public class linkToPlayer : MonoBehaviour {
         if (GameObject.Find("Player2(Clone)") && !false)
         {
             GameObject f = GameObject.Find("Player2(Clone)");
-            this.transform.position = new Vector3(f.transform.position.x, f.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3(f.transform.position.x, 5 + f.transform.position.y/3 + f.transform.position.y/3, this.transform.position.z);
             find = true;
         }
 	}
