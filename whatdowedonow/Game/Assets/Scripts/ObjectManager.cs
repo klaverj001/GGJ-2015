@@ -18,7 +18,7 @@ public class ObjectManager : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				randomObjectNumber = Random.Range (1, 1);
+				randomObjectNumber = Random.Range (1, 6);
 				Debug.Log (randomObjectNumber);
 
 				checkObjectInistiate ();
@@ -104,15 +104,7 @@ public class ObjectManager : MonoBehaviour
 						firstTimeObjective2 = 0;
 				}
 				if (Input.GetKey (KeyCode.R)) {
-						if (Player1.alive == true) {
-								Player1.FindObjectOfType<Player1> ().Respawn ();
-						} else if (Player1.alive == false) {
-		
-								Player1.alive = true;
-								//player.transform.position = new Vector3(0f,10f,0f);
-										
-								Instantiate (player, new Vector3 (2, 10, 0), Quaternion.identity);
-						}
+						Player1.FindObjectOfType<Player1>().Respawn ();
 				}
 		}
 
@@ -122,7 +114,6 @@ public class ObjectManager : MonoBehaviour
 						switch (objectiveNumber) {
 						case 1:
 								Debug.Log ("Objective 1 reached!");
-								Debug.Log("booleans" + Player1.Level1 + Player1.Level2 + Player1.Level3);
 								if (Player1.Level1 && !Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
@@ -135,7 +126,7 @@ public class ObjectManager : MonoBehaviour
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
-								if (Player1.Level2) {
+								else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -144,7 +135,7 @@ public class ObjectManager : MonoBehaviour
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
-								if (Player1.Level2) {
+								else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -153,7 +144,7 @@ public class ObjectManager : MonoBehaviour
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
-								if (Player1.Level2) {
+								else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -162,7 +153,7 @@ public class ObjectManager : MonoBehaviour
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
-								if (Player1.Level2) {
+								else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;
@@ -171,7 +162,7 @@ public class ObjectManager : MonoBehaviour
 								if (Player1.Level1) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel2 ();
 								}
-								if (Player1.Level2) {
+								else if (Player1.Level2) {
 										Player1.FindObjectOfType<Player1> ().SpawnToLevel3 ();
 								}
 								break;

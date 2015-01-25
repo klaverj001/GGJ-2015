@@ -38,27 +38,21 @@ public class Player1 : Character
 
 		public void SpawnToLevel2 ()
 		{
-				if (Level1) {
-						Spawn2 = GameObject.FindGameObjectWithTag ("Level2").transform.position;
-						Debug.Log ("spawn 2 position" + Spawn2);
-						if (alive == true) {
-								_transform.position = Spawn2;
-								Level1 = false;
-								Level2 = true;
-						}
+				Spawn2 = GameObject.FindGameObjectWithTag ("Level2").transform.position;
+				if (alive == true) {
+						_transform.position = Spawn2;
+						Level1 = false;
+						Level2 = true;
 				}
 		}
 
 		public void SpawnToLevel3 ()
 		{
-				if (Level2) {
-						Spawn3 = GameObject.FindGameObjectWithTag ("Level3").transform.position;
-						Debug.Log ("spawn 3 position" + Spawn3);
-						if (alive == true) {
-								_transform.position = Spawn3;
-								Level2 = false;
-								Level3 = true;
-						}
+				Spawn3 = GameObject.FindGameObjectWithTag ("Level3").transform.position;
+				if (alive == true) {
+						_transform.position = Spawn3;
+						Level2 = false;
+						Level3 = true;
 				}
 		}
 
@@ -66,7 +60,15 @@ public class Player1 : Character
 		{
 				// inputstate is none unless one of the movement keys are pressed
 				currentInputState = inputState.None;
-				currentControlType = controltype.Controls1;
+		
+				// Check the controls for the current level
+				if (Level1 == true) {
+						currentControlType = controltype.Controls1;
+				} else if (Level2 == true) {
+						currentControlType = controltype.Controls2;
+				} else if (Level3 == true) {
+						currentControlType = controltype.Controls3;
+				}
 				if (Character.alive == true) {
 						if (networkView.isMine) {	
 								
@@ -99,25 +101,13 @@ public class Player1 : Character
 		public void Respawn ()
 		{
 				if (alive == true && Level1) {
-						Debug.Log ("level boolean" + Level1 + Level2 + Level3);
 						_transform.position = spawnPos;
-						Level1 = true;
-						Level2 = false;
-						Level3 = false;
 				}
 				if (alive == true && Level2) {
-						Debug.Log ("level boolean" + Level1 + Level2 + Level3);
 						SpawnToLevel2 ();
-						Level1 = false;
-						Level2 = true;
-						Level3 = false;
 				}
 				if (alive == true && Level3) {
-						Debug.Log ("level boolean" + Level1 + Level2 + Level3);
 						SpawnToLevel3 ();
-						Level1 = false;
-						Level2 = false;
-						Level3 = true;
 				}
 		}
 

@@ -50,7 +50,7 @@ public class Spikes : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D c)
     {
        
-        if (c.gameObject.tag == "Player")
+		if (c.gameObject.tag == "Player")
         {
 			c.particleSystem.Play();
 			Player1 p1 = c.GetComponent<Player1>();	
