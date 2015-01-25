@@ -38,7 +38,8 @@ public class Player1 : Character
 
 		public void SpawnToLevel2 ()
 		{
-				GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
+				int number = GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
+		Debug.Log ("player number: " + number);
 				Spawn2 = GameObject.FindGameObjectWithTag ("Level2").transform.position;
 				if (alive == true) {
 						_transform.position = Spawn2;

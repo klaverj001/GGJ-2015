@@ -20,12 +20,13 @@ public class ObjectManager : MonoBehaviour
 				randomNumber ();	
 		}
 
-		public void randomNumber ()
+		public int randomNumber ()
 		{
 				randomObjectNumber = Random.Range (1, 5);
 				Debug.Log (randomObjectNumber);
 		
 				checkObjectInistiate ();
+			return randomObjectNumber;
 		}
 
 		void checkObjectInistiate ()
