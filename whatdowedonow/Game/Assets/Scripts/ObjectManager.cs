@@ -24,7 +24,7 @@ public class ObjectManager : MonoBehaviour
 
 		public void randomNumber ()
 		{
-				randomObjectNumber = Random.Range (3, 3);
+				randomObjectNumber = Random.Range (1, 5);
 				Debug.Log (randomObjectNumber);
 		
 				checkObjectInistiate ();
