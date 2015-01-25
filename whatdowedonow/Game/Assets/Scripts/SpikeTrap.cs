@@ -40,13 +40,28 @@ public class SpikeTrap : MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
-				if (other.gameObject.GetComponent ("Player1")) {
-						other.particleSystem.Play();
-						p1 = other.GetComponent<Player1>();	
-						p1.setPlayerAlive(false);
-						timerActive = true;
-						this.player = other;
+			if (other.gameObject.GetComponent ("Player1")) {
+				other.particleSystem.Play();
+				p1 = other.GetComponent<Player1>();	
+				p1.setPlayerAlive(false);
+				timerActive = true;
+				this.player = other;
+
+			if(p1.objectivenr == 2)
+			{
+				p1.Level1 = false;
+				if(p1.Level2 == true)
+				{
+					p1.Level2 = false;
+					p1.Level3 = true;
 				}
+				else
+				{
+					p1.Level2 = true;
+				}
+				p1.Respawn();
+			}
+			}
 		}
 
 	

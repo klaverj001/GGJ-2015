@@ -6,14 +6,17 @@ public class Player1 : Character
 		public static Object player;
 		public static Vector3 Spawn2;
 		public static Vector3 Spawn3;
-		public static bool Level1 = true;
-		public static bool Level2 = false;
-		public static bool Level3 = false;
+		public bool Level1 = true;
+		public bool Level2 = false;
+		public bool Level3 = false;
+		public int objectivenr;
 
 		// Use this for initialization
 		public override void Start ()
 		{
 				base.Start ();
+				objectivenr = Random.Range (1, 5);
+				Debug.Log (objectivenr);
 				player = GameObject.FindGameObjectWithTag ("Player");
 
 				// grab the players position at startup and use it for the spawn position when starting new rounds
@@ -37,7 +40,8 @@ public class Player1 : Character
 
 		public void SpawnToLevel2 ()
 		{
-				GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
+		objectivenr = Random.Range (1, 5);
+		Debug.Log (objectivenr);
 				Spawn2 = GameObject.FindGameObjectWithTag ("Level2").transform.position;
 				if (alive == true) {
 						_transform.position = Spawn2;
@@ -48,7 +52,8 @@ public class Player1 : Character
 
 		public void SpawnToLevel3 ()
 		{
-				GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
+		objectivenr = Random.Range (1, 5);
+		Debug.Log (objectivenr);
 				Spawn3 = GameObject.FindGameObjectWithTag ("Level3").transform.position;
 				if (alive == true) {
 						_transform.position = Spawn3;
@@ -101,7 +106,8 @@ public class Player1 : Character
 	
 		public void Respawn ()
 		{
-
+		objectivenr = Random.Range (1, 5);
+		Debug.Log (objectivenr);
 		if (alive == true && Level1) {
 						_transform.position = spawnPos;
 				}

@@ -5,7 +5,7 @@ public class ObjectManager : MonoBehaviour
 {
 
 		private int randomObjectNumber;
-		private int firstTimeObjective2 = 1;
+		//private int firstTimeObjective2 = 1;
 		public GameObject goalObject1;
 		public GameObject goalObject2;
 		public GameObject goalObject3;
@@ -23,7 +23,7 @@ public class ObjectManager : MonoBehaviour
 		public void randomNumber ()
 		{
 				randomObjectNumber = Random.Range (1, 5);
-				Debug.Log (randomObjectNumber);
+				//Debug.Log (randomObjectNumber);
 		
 				checkObjectInistiate ();
 		}
@@ -92,10 +92,10 @@ public class ObjectManager : MonoBehaviour
 		void Update ()
 		{
 				player.particleSystem.Stop ();
-				if (Character.alive == false && firstTimeObjective2 != 0) {
-						Objective (2);
-						firstTimeObjective2 = 0;
-				}
+				//if (Character.alive == false /*&& firstTimeObjective2 != 0*/) {
+						//Objective (2);
+						//firstTimeObjective2 = 0;
+				//}
 				if (Input.GetKey (KeyCode.R)) {
 						Player1.FindObjectOfType<Player1> ().Respawn ();
 				}
@@ -103,7 +103,8 @@ public class ObjectManager : MonoBehaviour
 
 		public void Objective (int objectiveNumber)
 		{
-				if (randomObjectNumber == objectiveNumber) {
+				/*
+				 if (randomObjectNumber == objectiveNumber) {
 						switch (objectiveNumber) {
 						case 1:
 								Debug.Log ("Objective 1 reached!");
@@ -148,7 +149,8 @@ public class ObjectManager : MonoBehaviour
 						default:
 								Debug.Log ("No valid objective...");
 								break;
+
 						}
-				}
+				}*/
 		}
 }

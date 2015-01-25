@@ -8,6 +8,7 @@ public class Objective3 : MonoBehaviour {
 	private float timer = 0f;
 	public float timerSeconds = 5.0f;
 	private bool timerActive = false;
+	Player1 p1;
 
 
 	void Update () 
@@ -20,6 +21,20 @@ public class Objective3 : MonoBehaviour {
 			{
 				timerActive = false;
 				game.GetComponent<ObjectManager>().Objective(3);
+				if(p1.objectivenr == 3)
+				{
+					p1.Level1 = false;
+					if(p1.Level2 == true)
+					{
+						p1.Level2 = false;
+						p1.Level3 = true;
+					}
+					else
+					{
+						p1.Level2 = true;
+					}
+					p1.Respawn();
+				}
 			}
 		}
 	}
@@ -29,6 +44,7 @@ public class Objective3 : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
+			p1 = other.gameObject.GetComponent<Player1>();
 			timerActive = true;
 		}
 	}
