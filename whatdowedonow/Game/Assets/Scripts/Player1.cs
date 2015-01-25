@@ -10,6 +10,8 @@ public class Player1 : Character
 		public static bool Level2 = false;
 		public static bool Level3 = false;
 
+	private ObjectManager objectmanager;
+
 		// Use this for initialization
 		public override void Start ()
 		{
@@ -43,6 +45,8 @@ public class Player1 : Character
 						_transform.position = Spawn2;
 						Level1 = false;
 						Level2 = true;
+			ObjectManager.count++;
+			//objectmanager.checkObjectInistiate();
 				}
 		}
 
@@ -54,6 +58,8 @@ public class Player1 : Character
 						_transform.position = Spawn3;
 						Level2 = false;
 						Level3 = true;
+			ObjectManager.count++;
+			//objectmanager.checkObjectInistiate();
 				}
 		}
 
