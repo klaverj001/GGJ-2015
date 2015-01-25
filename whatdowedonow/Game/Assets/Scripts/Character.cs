@@ -142,9 +142,9 @@ public class Character : MonoBehaviour
 								physVel.x = -moveVel;
 						}
 						if (currentInputState == inputState.Duck) {
-						if (jumps < maxJumps && _transform.position.y < 3.4) {
+						if (jumps < maxJumps) {
 							jumps += 1;
-							physVel.y = jumpVel;
+							_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
 						}
 						// jump
 						if (currentInputState == inputState.Jump) {
