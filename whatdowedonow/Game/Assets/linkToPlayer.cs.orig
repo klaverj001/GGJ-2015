@@ -17,7 +17,7 @@ public class linkToPlayer : MonoBehaviour {
             this.transform.position = new Vector3(f.transform.position.x, 5 + f.transform.position.y / 3 + f.transform.position.y / 3, this.transform.position.z);
 =======
             this.transform.position = new Vector3(f.transform.position.x, 5 + f.transform.position.y/3 + f.transform.position.y/3, this.transform.position.z);
->>>>>>> new camera
+>>>>>>> 602323fd72183bb96cbcc5230c4618036d932102
             find = true;
         }
 	}
