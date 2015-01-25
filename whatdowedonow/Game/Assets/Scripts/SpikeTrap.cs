@@ -29,10 +29,10 @@ public class SpikeTrap : MonoBehaviour
 				//player.gameObject.GetComponent ("Player1").GetComponent<Player1> ().Respawn ();
 
 				timer = 0f;
-				player.particleSystem.Stop();
-				p1 = player.GetComponent<Player1>();
+				p1.particleSystem.Stop();
 				p1.Respawn();
 				p1.setPlayerAlive(true);
+				GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
 			}
 		}
 		}
@@ -42,7 +42,7 @@ public class SpikeTrap : MonoBehaviour
 		{
 				if (other.gameObject.GetComponent ("Player1")) {
 						other.particleSystem.Play();
-						Player1 p1 = other.GetComponent<Player1>();	
+						p1 = other.GetComponent<Player1>();	
 						p1.setPlayerAlive(false);
 						timerActive = true;
 						this.player = other;

@@ -168,12 +168,19 @@ public class Character : MonoBehaviour
 					if (currentInputState == inputState.Duck) {
 						//play duck animation;
 					}
+					// jump
 					if (currentInputState == inputState.Jump) {
-						if(facingDir == facing.Right)
+						if (jumps < maxJumps) {
+							jumps += 1;
+							_rigidbody.velocity = new Vector2 (physVel.x, jumpVel);
+
+							/*if(facingDir == facing.Right)
 							physVel.x = moveVel*20;
 						if(facingDir == facing.Left)
 							physVel.x = -moveVel*20;
+						}*/
 						}
+					}
 					}
 				}
 
