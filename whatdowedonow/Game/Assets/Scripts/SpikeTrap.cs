@@ -1,45 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpikeTrap : MonoBehaviour {
+public class SpikeTrap : MonoBehaviour
+{
 
-    Vector3 oriPos;
-	bool waitActive = false;
-    // Use this for initialization
-	void Start () {
-        oriPos = this.transform.position;
-	}
+		Vector3 oriPos;
+		private float timer = 0f;
+		public float timerSeconds = 5.0f;
+		private bool timerActive = false;
+		private Collider2D player;
+		Player1 p1;
+		// Use this for initialization
+		void Start ()
+		{
+				oriPos = this.transform.position;
+		}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	IEnumerator Wait(){
-		Debug.Log("wait");
-		waitActive = true;
-		yield return new WaitForSeconds(50);
-		waitActive = false;
-	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log("in on trigger");
-        if (other.gameObject.GetComponent("Player1"))
-        {
-			if(networkView.isMine){
-				if(!waitActive){
-					other.particleSystem.Play();
-					StartCoroutine(Wait());
-					//other.particleSystem.Stop();
-				}
-            	//Character.alive = false;
-            	Time.timeScale = 0.1f;
-            	other.gameObject.GetComponent("Player1").GetComponent<Player1>().Respawn();
-
-            	//Destroy(other.gameObject, 0.1f);
+		// Update is called once per frame
+		void Update ()
+		{
+		if (timerActive == true) 
+		{
+			timer += Time.deltaTime;
+			
+			if(timer >= timerSeconds)
+			{
+				timerActive = false;
+				player.gameObject.GetComponent ("Player1").GetComponent<Player1> ().Respawn ();
+				timer = 0f;
+				player.particleSystem.Stop();
+				p1 = player.GetComponent<Player1>();
+				p1.setPlayerAlive(true);
 			}
-        }
-	}
+		}
+		}
+
+
+		void OnTriggerEnter2D (Collider2D other)
+		{
+			
+				Debug.Log ("in on trigger");
+				if (other.gameObject.GetComponent ("Player1")) {
+						other.particleSystem.Play();
+						Player1 p1 = other.GetComponent<Player1>();	
+						p1.setPlayerAlive(false);
+						timerActive = true;
+						this.player = other;
+				}
+		}
 
 	
 }

@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
 	{
 		Controls1,
 		Controls2,
-		Controls3
+		Controls3,
 
 	}
 	public enum inputState 

@@ -98,25 +98,21 @@ public class ObjectManager : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+			player.particleSystem.Stop ();
 				if (Character.alive == false && firstTimeObjective2 != 0) {
 						Objective (2);
 						firstTimeObjective2 = 0;
 				}
 				if (Input.GetKey (KeyCode.R)) {
-						if (networkView.isMine) {
-						Time.timeScale = 1;
 								if (Player1.alive == true) {
 										Player1.FindObjectOfType<Player1> ().Respawn ();
 								} else if (Player1.alive == false) {
 		
 										Player1.alive = true;
 										//player.transform.position = new Vector3(0f,10f,0f);
-										player.particleSystem.Stop ();
+										
 										Instantiate (player, new Vector3 (2, 10, 0), Quaternion.identity);
-										//Network.Instantiate(player, new Vector3(0f, 10f, 0f), Quaternion.identity, 0);
-
 								}
-						}
 				}
 		}
 
