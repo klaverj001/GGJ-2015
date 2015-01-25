@@ -10,7 +10,6 @@ public class Player1 : Character
 		public static bool Level2 = false;
 		public static bool Level3 = false;
 
-
 		// Use this for initialization
 		public override void Start ()
 		{
@@ -38,8 +37,7 @@ public class Player1 : Character
 
 		public void SpawnToLevel2 ()
 		{
-				int number = GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
-				Debug.Log ("player number: " + number);
+				GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
 				Spawn2 = GameObject.FindGameObjectWithTag ("Level2").transform.position;
 				if (alive == true) {
 						_transform.position = Spawn2;
@@ -103,8 +101,6 @@ public class Player1 : Character
 	
 		public void Respawn ()
 		{
-		int number = GameObject.Find("Game").GetComponent<ObjectManager>().randomNumber();
-		Debug.Log ("player number: " + number);
 
 		if (alive == true && Level1) {
 						_transform.position = spawnPos;

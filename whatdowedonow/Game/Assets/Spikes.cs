@@ -39,11 +39,10 @@ public class Spikes : MonoBehaviour {
 			if(timer >= timerSeconds)
 			{
 				timerActive = false;
-				player.gameObject.GetComponent ("Player1").GetComponent<Player1>().Respawn ();
 				timer = 0f;
-				player.particleSystem.Stop();
-				p1 = player.GetComponent<Player1>();
+				p1.particleSystem.Stop();
 				p1.setPlayerAlive(true);
+				p1.Respawn();
 			}
 		}
 	}
@@ -53,7 +52,7 @@ public class Spikes : MonoBehaviour {
 		if (c.gameObject.tag == "Player")
         {
 			c.particleSystem.Play();
-			Player1 p1 = c.GetComponent<Player1>();	
+			p1 = c.GetComponent<Player1>();	
 			p1.setPlayerAlive(false);
 			timerActive = true;
 			this.player = c;
