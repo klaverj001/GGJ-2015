@@ -30,68 +30,68 @@ public class ObjectManager : MonoBehaviour {
 		// Vector3 moet hardcoded gedaan worden per vlag.
 		if (randomObjectNumber == 1) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4,5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 				}
 		if (randomObjectNumber == 2) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4,5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 3) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4,5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 4) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4,5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 5) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4,5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		if (randomObjectNumber == 6) {
 			if(count == 1){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(-20, 4,5f, 0), Quaternion.identity);
 			}
 			if(count == 2){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 			if(count == 3){
-				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate(goalObject1, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 			}
 		}
 		}
